@@ -21,3 +21,10 @@ export const invalidUser = {
   email: "test@test.com",
   password: "wrongpassword"
 }
+
+export const emptyUser = {}
+
+export const testUser = {
+  documentType: "CC",
+  documentNumber: "1037630472"
+}

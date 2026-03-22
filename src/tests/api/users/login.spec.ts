@@ -1,5 +1,6 @@
 import { test, expect, APIResponse } from '@playwright/test'
-import { login, loginWithInvalidUser, loginWithEmptyBody } from '../../../services/users.service'
+import { login } from '../../../services/users.service'
+import { emptyUser, invalidUser, validUser } from '../../../data/users'
 
 /**
  * Agrupa todos los tests relacionados con usuarios
@@ -18,7 +19,7 @@ test.describe('Auth API - Login', () => {
 
     await test.step('Send login request', async () => {
 
-      response = await login(request)
+      response = await login(request, validUser)
 
       console.log("URL:", response.url())
       console.log("STATUS:", response.status())
@@ -54,7 +55,7 @@ test.describe('Auth API - Login', () => {
 
     await test.step('Send login request with invalid credentials', async () => {
 
-      response = await loginWithInvalidUser(request)
+      response = await login(request, invalidUser)
 
       console.log("URL:", response.url())
       console.log("STATUS:", response.status())
@@ -80,7 +81,7 @@ test.describe('Auth API - Login', () => {
 
     await test.step('Send login request with empty body', async () => {
 
-      response = await loginWithEmptyBody(request)
+      response = await login(request, emptyUser)
 
       console.log("URL:", response.url())
       console.log("STATUS:", response.status())
