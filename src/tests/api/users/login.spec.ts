@@ -90,7 +90,7 @@ test.describe('Auth API - Login', () => {
 
     await test.step('Validate HTTP status code', async () => {
 
-      expect(response.status()).toBe(401)
+      expect(response.status()).toBe(422)
 
     })
 
