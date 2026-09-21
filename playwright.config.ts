@@ -41,7 +41,11 @@ export default defineConfig({
       'Content-Type': 'application/json'
     },
 
-    trace: 'on-first-retry'
+    // Evidencia cuando una prueba falla
+    screenshot: "only-on-failure",
+
+    // Trace para investigar fallos
+    trace: "retain-on-failure",
   },
 
   /* Configure projects for major browsers */
