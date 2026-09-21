@@ -36,13 +36,13 @@ test.describe("Auth UI - Login", () => {
     });
 
     await test.step("Validate login error", async () => {
-      await expect(
-        page.getByText("Credenciales inválidas")
-      ).toBeVisible();
-
-    // await expect(
-    //     page.getByText("Invalid email or password")
+    //   await expect(
+    //     page.getByText("Credenciales inválidas")
     //   ).toBeVisible();
+
+    await expect(
+        page.getByText("Invalid email or password")
+      ).toBeVisible();
 
       await expect(page).toHaveURL(/\/login/);
     });
