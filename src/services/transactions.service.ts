@@ -17,3 +17,20 @@ export async function getTransactionsByUser(
   })
 
 }
+
+/**
+ * Generar acumulación de puntos
+ */
+export async function accumulatePoints(
+  request: APIRequestContext,
+  data: any,
+  token: string,
+) {
+
+  return await request.post(`/loyalty/v1/transactions/accumulate`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    data
+  })
+}
